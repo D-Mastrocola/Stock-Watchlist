@@ -5,6 +5,22 @@ body {
 img {
     border: 15px black;
 width: 300px
-
-
+}
+nav {
+    overflow: hidden;
+    background-color: black;
+}
+nav a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 26px;
+    text-decoration: none;
+    font-size: 15px;
+    flex: content;
+}
+nav a:hover {
+    background-color: aliceblue;
+    color: black;
 }
