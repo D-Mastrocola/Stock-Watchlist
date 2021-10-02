@@ -16,17 +16,18 @@ body {
     padding: 1%;
     margin: auto;
 
-
-
 }
 /*  FIXED Ticker WRAPPER */
 .hwrap {
     overflow: hidden; /* HIDE SCROLL BAR */
-    background: #eee;
+    background: aliceblue;
   }
    
   /* MOVING TICKER WRAPPER */
-  .hmove { display: flex; }
+  .hmove {
+      display: flex; 
+
+}
   
   /* ITEMS - INTO A LONG HORIZONTAL ROW */
   .hitem {
@@ -35,13 +36,14 @@ body {
     box-sizing: border-box;
     padding: 10px;
     text-align: center;
+    border-color: black;
   }
    
-  /* ANIMATION - MOVE ITEMS FROM RIGHT TO LEFT */
+  /* ANIMATION - RIGHT TO LEFT */
   /* 4 ITEMS -400%, CHANGE THIS IF YOU ADD/REMOVE ITEMS */
   @keyframes tickerh {
     0% { transform: translate3d(100%, 0, 0); }
-    100% { transform: translate3d(-400%, 0, 0); }
+    100% { transform: translate3d(-200%, 0, 0); }
   }
   .hmove { animation: tickerh linear 15s infinite; }
   .hmove:hover { animation-play-state: paused; }
@@ -49,7 +51,7 @@ body {
 
 img {
     border: 15px black;
-width: 200px
+    width: 200px
 }
 
 nav {
