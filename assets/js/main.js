@@ -2,7 +2,7 @@ const API_KEY = 'fKzrzAwj3Su_nDWNEMyaa6lLvXCrFX8z';
 let watchListEl = $('#watch-list');
 let watchCardContainerEl = $('<div>').addClass('container')
 
-let watchListTickers = ['FSLR'];
+let watchListTickers = [];
 
 
 let getBasicData = (ticker) => {
@@ -25,7 +25,6 @@ let makeCard = (ticker) => {
   let cardEl = $('<div>').addClass("d-flex align-items-end justify-content-center bg-light text-dark p-4").html('<h3 class="h3 my-0 mx-2">' + ticker + '</h3>');
   let cardDetailsEl = (await = () => getBasicData(ticker));
   cardEl.append(cardDetailsEl);
-
   watchCardContainerEl.append(cardEl);
 }
 let createWatchList = () => {
@@ -35,4 +34,12 @@ let createWatchList = () => {
 
   watchListEl.append(title, watchCardContainerEl);
 }
-createWatchList();
+//createWatchList();
+
+//Get user input from the form
+let searchFormEl = $('#search-form').on('submit', () => {
+  event.preventDefault();
+  let searchTicker = $('#search-input').val();
+  watchListTickers.push(searchTicker)
+  createWatchList();
+})
