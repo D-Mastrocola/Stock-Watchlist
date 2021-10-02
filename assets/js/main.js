@@ -11,18 +11,18 @@ let getBasicData = (ticker) => {
   let formattedDate = yesterdaysDate.format('YYYY-MM-DD');
   console.log(formattedDate);
 
-  let cardDetailsEl = $('<div>');
+  let cardDetailsEl = $('<div>').addClass('d-flex');
 
   let response = fetch('https://api.polygon.io/v1/open-close/' + ticker + '/' + formattedDate + '?adjusted=true&apiKey=fKzrzAwj3Su_nDWNEMyaa6lLvXCrFX8z').then((response) => {
     response.json().then((data) => {
       console.log(data);
-      cardDetailsEl.html('<div>Open: ' + data.open + '</div><div>High: ' + data.high + '</div><div>Low: ' + data.low + "</div><div>Close: " + data.close + '</div>');
+      cardDetailsEl.html('<div class="mx-1">Open: ' + data.open + '</div><div class="mx-1">High: ' + data.high + '</div><div class="mx-1">Low: ' + data.low + '</div><div class="mx-1">Close: ' + data.close + '</div>');
     })
   })
   return cardDetailsEl;
 }
 let makeCard = (ticker) => {
-  let cardEl = $('<div>').addClass("row bg-light text-dark p-4").html('<div><h3 class="h3">' + ticker + '</h3><div>');
+  let cardEl = $('<div>').addClass("d-flex align-items-end justify-content-center bg-light text-dark p-4").html('<h3 class="h3 my-0 mx-2">' + ticker + '</h3>');
   let cardDetailsEl = (await = () => getBasicData(ticker));
   cardEl.append(cardDetailsEl);
 
