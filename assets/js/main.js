@@ -1,18 +1,10 @@
 const API_KEY = 'sandbox_bvhn01v48v6olk04psp0';
 var searchInputEl = document.getElementById("search-input");
 var searchButtonEl = document.getElementById("search-button");
+
 // needed for google charts
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
-
-//let watchListTickers = ["FSLR", "AAPL", "F"];
-let watchListTickers = [];
-
-// let makeCard = () => {
-//   let response = fetch('https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2020-06-01/2020-06-17?apiKey=fKzrzAwj3Su_nDWNEMyaa6lLvXCrFX8z').then((response) => {
-//     console.log(response)
-//   });
-// }
 
 var getChartData = function(stockTicker) {
     fetch("https://finnhub.io/api/v1/stock/candle?symbol=" + stockTicker + "&resolution=D&from=1631022248&to=1631627048&token=sandbox_bvhn01v48v6olk04psp0")
@@ -44,9 +36,5 @@ searchButtonEl.onclick = function(event) {
     event.preventDefault();
     var stock = searchInputEl.value.trim().toUpperCase();
     getChartData(stock);
-    // console.log(stock);
 }
 
-
-//makeCard('AAPL')
-// getChartData();
