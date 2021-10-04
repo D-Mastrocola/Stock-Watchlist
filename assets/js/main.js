@@ -1,45 +1,105 @@
-const API_KEY = 'fKzrzAwj3Su_nDWNEMyaa6lLvXCrFX8z';
-let watchListEl = $('#watch-list');
-let watchCardContainerEl = $('<div>').addClass('container')
+//Using the snadbox api gives us 60calls per minute
+const API_KEY = "sandbox_bvhn01v48v6olk04psp0";
+let watchListEl = $("#watch-list");
+let watchCardContainerEl = $("<div>").addClass("container");
 
+//let watchListTickers = ["FSLR", "AAPL", "F"];
 let watchListTickers = [];
 
+let yesterdaysDate = moment().subtract(1, "days");
+let date = moment().format("YYYY-MM-DD");
 
-let getBasicData = (ticker) => {
-  //format yesterdays date because api does not have current day data available
-  let yesterdaysDate = moment().subtract(1, 'days');
-  let formattedDate = yesterdaysDate.format('YYYY-MM-DD');
-  console.log(formattedDate);
+let changeColors = {
+  up: "text-success",
+  down: "text-danger",
+};
 
-  let cardDetailsEl = $('<div>').addClass('d-flex');
-
-  let response = fetch('https://api.polygon.io/v1/open-close/' + ticker + '/' + formattedDate + '?adjusted=true&apiKey=fKzrzAwj3Su_nDWNEMyaa6lLvXCrFX8z').then((response) => {
+//Adds ticker card to watch list element
+let makeCard = (ticker) => {
+  let cardEl = $("<div>").addClass("bg-light d-flex justify-content-start align-items-center");
+  let response = fetch(
+    "https://finnhub.io/api/v1/quote?symbol=" + ticker + "&token=" + API_KEY
+  ).then((response) => {
     response.json().then((data) => {
       console.log(data);
-      cardDetailsEl.html('<div class="mx-1">Open: ' + data.open + '</div><div class="mx-1">High: ' + data.high + '</div><div class="mx-1">Low: ' + data.low + '</div><div class="mx-1">Close: ' + data.close + '</div>');
-    })
-  })
-  return cardDetailsEl;
-}
-let makeCard = (ticker) => {
-  let cardEl = $('<div>').addClass("d-flex align-items-end justify-content-center bg-light text-dark p-4").html('<h3 class="h3 my-0 mx-2">' + ticker + '</h3>');
-  let cardDetailsEl = (await = () => getBasicData(ticker));
-  cardEl.append(cardDetailsEl);
-  watchCardContainerEl.append(cardEl);
-}
+      let price = data.c.toFixed(2);
+      let priceChange = data.d;
+
+      let color = changeColors.down;
+      if (priceChange >= 0) color = changeColors.up;
+
+      let title = $("<h2>").addClass('col-4 text-end').html(
+        "<span class='col-10 m-2 " + color + "'>" + price + "</span>" + ticker
+      );
+      let dayInfo = { 
+        change: data.dp,
+        open: data.o,
+        close: data.pc,
+        high: data.h,
+        low: data.l
+      };
+      let changeEl = $('<p>').text(dayInfo.change.toFixed(2) + '%');
+      if(dayInfo.change >= 0) changeEl.addClass('text-success')
+      else changeEl.addClass('text-danger')
+
+      let openEl = $('<p>').text('O: ' + dayInfo.open);
+      let closeEl = $('<p>').text('C: ' + dayInfo.close);
+      let highEl = $('<p>').text('H: ' + dayInfo.high);
+      let lowEl = $('<p>').text('L: ' + dayInfo.low);
+      cardEl.append(title, changeEl, openEl, closeEl, highEl, lowEl);
+      watchCardContainerEl.append(cardEl);
+
+      //Saves the list to local storage
+      saveWatchList();
+    });
+  });
+};
+
+
+//loops throuht tickers in the watch list and makes a card
 let createWatchList = () => {
   watchListEl.empty();
-  let title = $('<h2>').text('Watchlist');
+  let title = $("<h2>").text("Watchlist");
   watchListTickers.forEach((ticker) => makeCard(ticker));
-
   watchListEl.append(title, watchCardContainerEl);
-}
-//createWatchList();
+};
 
-//Get user input from the form
-let searchFormEl = $('#search-form').on('submit', () => {
+let saveWatchList = () => {
+  localStorage.setItem("watch-list", JSON.stringify(watchListTickers));
+};
+let loadWatchList = () => {
+  let loadedWatchList = localStorage.getItem("watch-list");
+  if (loadedWatchList) {
+    watchListTickers = JSON.parse(loadedWatchList);
+    createWatchList();
+  } else {
+    let supportedStocks = fetch(
+      "https://finnhub.io/api/v1/stock/symbol?exchange=US&token=" + API_KEY
+    ).then((response) => {
+      response.json().then((data) => {
+        let generatedList = [];
+        while (generatedList.length < 4) {
+          let index = Math.floor(Math.random() * data.length);
+          let ticker = data[index].symbol;
+          //remove from data to prevent repeated tickers
+          data.splice(index, 1);
+
+          generatedList.push(ticker);
+        }
+        watchListTickers = generatedList;
+        console.log(watchListTickers);
+        createWatchList();
+      });
+    });
+  }
+};
+loadWatchList();
+
+
+let searchForm = $('#search-form').on('submit', (event) => {
   event.preventDefault();
-  let searchTicker = $('#search-input').val();
-  watchListTickers.push(searchTicker)
-  createWatchList();
+  let input = $("#search-input").val();
+  watchListTickers.push(input);
+  makeCard(input);
+  $("#search-input").val('');
 })
