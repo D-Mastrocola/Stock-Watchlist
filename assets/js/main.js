@@ -13,27 +13,63 @@ let changeColors = {
   up: "text-success",
   down: "text-danger",
 };
+let removeCard = () => {
 
+}
 //Adds ticker card to watch list element
-let addCard = (ticker) => {
-  console.log(ticker);
-  let cardEl = $("<div>").addClass("bg-light");
+let makeCard = (ticker) => {
+  let cardEl = $("<div>").addClass("border border-2 border-secodary border-start-0 border-top-0 border-end-0 p-2 d-flex justify-content-start align-items-center");
   let response = fetch(
     "https://finnhub.io/api/v1/quote?symbol=" + ticker + "&token=" + API_KEY
   ).then((response) => {
     response.json().then((data) => {
-      watchListTickers.push(ticker);
       console.log(data);
-      let price = data.c;
+      let price = data.c.toFixed(2);
       let priceChange = data.d;
 
       let color = changeColors.down;
       if (priceChange >= 0) color = changeColors.up;
 
-      let title = $("<h2>").html(
-        "<span class=" + color + ">" + price + "</span>" + ticker
+      let title = $("<h2>").addClass('col-4 text-end').html(
+        "<span class='col-10 m-2 " + color + "'>" + price + "</span>" + ticker
       );
-      cardEl.append(title);
+      let dayInfo = { 
+        change: data.dp.toFixed(2),
+        open: data.o.toFixed(2),
+        close: data.pc.toFixed(2),
+        high: data.h.toFixed(2),
+        low: data.l.toFixed(2)
+      };
+
+      cardEl.attr('ticker', ticker);
+      let changeEl = $('<p>').text(dayInfo.change + '%');
+      if(dayInfo.change >= 0) changeEl.addClass('text-success col-1')
+      else changeEl.addClass('text-danger col-1')
+
+      let openEl = $('<div>').text('O: ' + dayInfo.open).addClass('col-1');
+      let closeEl = $('<div>').text('C: ' + dayInfo.close).addClass('col-1');
+      let highEl = $('<div>').text('H: ' + dayInfo.high).addClass('col-1');
+      let lowEl = $('<div>').text('L: ' + dayInfo.low).addClass('col-1');
+
+      let removeBtnEl = $('<button>').addClass('btn btn-danger').text('Remove').attr('ticker', ticker);
+
+      //create and event listener to remove the button
+      removeBtnEl.on('click', () => {
+        for(let i = 0; i < watchCardContainerEl.children().length; i++) {
+          let selectedEl = $(watchCardContainerEl.children()[i])
+          if(removeBtnEl.attr('ticker') === selectedEl.attr('ticker')) {
+            selectedEl.remove();
+            break;
+          }
+        }
+        watchListTickers.forEach((ticker,  i) => {
+          if(removeBtnEl.attr('ticker') === ticker) {
+            watchListTickers.splice(i, 1);
+          }
+        });
+        saveWatchList();
+      })
+      cardEl.append(title, changeEl, openEl, closeEl, highEl, lowEl, removeBtnEl);
       watchCardContainerEl.append(cardEl);
 
       //Saves the list to local storage
@@ -47,7 +83,7 @@ let addCard = (ticker) => {
 let createWatchList = () => {
   watchListEl.empty();
   let title = $("<h2>").text("Watchlist");
-  watchListTickers.forEach((ticker) => addCard(ticker));
+  watchListTickers.forEach((ticker) => makeCard(ticker));
   watchListEl.append(title, watchCardContainerEl);
 };
 
@@ -65,7 +101,8 @@ let loadWatchList = () => {
     ).then((response) => {
       response.json().then((data) => {
         let generatedList = [];
-        while (generatedList.length < 10) {
+        while (generatedList.length < 4) {
+
           let index = Math.floor(Math.random() * data.length);
           let ticker = data[index].symbol;
           //remove from data to prevent repeated tickers
@@ -81,3 +118,11 @@ let loadWatchList = () => {
   }
 };
 loadWatchList();
+
+let searchForm = $('#search-form').on('submit', (event) => {
+  event.preventDefault();
+  let input = $("#search-input").val();
+  watchListTickers.push(input);
+  makeCard(input);
+  $("#search-input").val('');
+})
