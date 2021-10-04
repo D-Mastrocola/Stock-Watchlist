@@ -13,10 +13,12 @@ let changeColors = {
   up: "text-success",
   down: "text-danger",
 };
+let removeCard = () => {
 
+}
 //Adds ticker card to watch list element
 let makeCard = (ticker) => {
-  let cardEl = $("<div>").addClass("bg-light d-flex justify-content-start align-items-center");
+  let cardEl = $("<div>").addClass("border border-2 border-secodary border-start-0 border-top-0 border-end-0 p-2 d-flex justify-content-start align-items-center");
   let response = fetch(
     "https://finnhub.io/api/v1/quote?symbol=" + ticker + "&token=" + API_KEY
   ).then((response) => {
@@ -32,21 +34,42 @@ let makeCard = (ticker) => {
         "<span class='col-10 m-2 " + color + "'>" + price + "</span>" + ticker
       );
       let dayInfo = { 
-        change: data.dp,
-        open: data.o,
-        close: data.pc,
-        high: data.h,
-        low: data.l
+        change: data.dp.toFixed(2),
+        open: data.o.toFixed(2),
+        close: data.pc.toFixed(2),
+        high: data.h.toFixed(2),
+        low: data.l.toFixed(2)
       };
-      let changeEl = $('<p>').text(dayInfo.change.toFixed(2) + '%');
-      if(dayInfo.change >= 0) changeEl.addClass('text-success')
-      else changeEl.addClass('text-danger')
 
-      let openEl = $('<p>').text('O: ' + dayInfo.open);
-      let closeEl = $('<p>').text('C: ' + dayInfo.close);
-      let highEl = $('<p>').text('H: ' + dayInfo.high);
-      let lowEl = $('<p>').text('L: ' + dayInfo.low);
-      cardEl.append(title, changeEl, openEl, closeEl, highEl, lowEl);
+      cardEl.attr('ticker', ticker);
+      let changeEl = $('<p>').text(dayInfo.change + '%');
+      if(dayInfo.change >= 0) changeEl.addClass('text-success col-1')
+      else changeEl.addClass('text-danger col-1')
+
+      let openEl = $('<div>').text('O: ' + dayInfo.open).addClass('col-1');
+      let closeEl = $('<div>').text('C: ' + dayInfo.close).addClass('col-1');
+      let highEl = $('<div>').text('H: ' + dayInfo.high).addClass('col-1');
+      let lowEl = $('<div>').text('L: ' + dayInfo.low).addClass('col-1');
+
+      let removeBtnEl = $('<button>').addClass('btn btn-danger').text('Remove').attr('ticker', ticker);
+
+      //create and event listener to remove the button
+      removeBtnEl.on('click', () => {
+        for(let i = 0; i < watchCardContainerEl.children().length; i++) {
+          let selectedEl = $(watchCardContainerEl.children()[i])
+          if(removeBtnEl.attr('ticker') === selectedEl.attr('ticker')) {
+            selectedEl.remove();
+            break;
+          }
+        }
+        watchListTickers.forEach((ticker,  i) => {
+          if(removeBtnEl.attr('ticker') === ticker) {
+            watchListTickers.splice(i, 1);
+          }
+        });
+        saveWatchList();
+      })
+      cardEl.append(title, changeEl, openEl, closeEl, highEl, lowEl, removeBtnEl);
       watchCardContainerEl.append(cardEl);
 
       //Saves the list to local storage
