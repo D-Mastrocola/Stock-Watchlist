@@ -15,7 +15,7 @@
       crossorigin="anonymous"
     />
   <link rel="stylesheet" href="./assets/css/style.css">
-
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 </head>
 
@@ -47,7 +47,7 @@
         </ul>
         <form id='search-form' class="d-flex">
           <input id='search-input' class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button class="btn btn-outline-success" type="submit" id="search-button">Search</button>
         </form>
       </div>
     </div>
@@ -57,6 +57,9 @@
   <section id='watch-list' class="Ticker-Section bg-light p-4">
     <h2>Watchlist</h2>
   </section>
+
+  <!-- Graph -->
+  <div id="chart_div" style="width: 500px; height: 250px;"></div>
 
   <!--main content HERO section-->
   <div id="HotPicks"> Hot Picks
@@ -106,7 +109,7 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="./assets/js/main.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
  
   </body>
  
