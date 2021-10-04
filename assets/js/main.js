@@ -102,6 +102,7 @@ let loadWatchList = () => {
       response.json().then((data) => {
         let generatedList = [];
         while (generatedList.length < 4) {
+
           let index = Math.floor(Math.random() * data.length);
           let ticker = data[index].symbol;
           //remove from data to prevent repeated tickers
@@ -117,7 +118,6 @@ let loadWatchList = () => {
   }
 };
 loadWatchList();
-
 
 let searchForm = $('#search-form').on('submit', (event) => {
   event.preventDefault();
