@@ -8,11 +8,12 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- link to boostrap library-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-     crossorigin="anonymous">
- 
-  <!-- CDN to animate.css-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
   <link rel="stylesheet" href="./assets/css/style.css">
 
 
@@ -44,8 +45,8 @@
           </li>
 
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <form id='search-form' class="d-flex">
+          <input id='search-input' class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>
@@ -53,14 +54,8 @@
   </nav>
 
   <!-- This is the ticker section-->
-  <section class="Ticker-Section">
-    
-    <div class="hwrap"><div class="hmove">
-      <div class="hitem">This will be a Ticker.</div>
-      <div class="hitem">And this will be a Tick...</div>
-      <div class="hitem">And this will be a Tick..</div>
-      <div class="hitem">And this will be a Tick.</div>
-    </div></div>
+  <section id='watch-list' class="Ticker-Section bg-light p-4">
+    <h2>Watchlist</h2>
   </section>
 
   <!--main content HERO section *Need hrefs for stock picks-->
@@ -113,13 +108,16 @@
 </div>
 </div>
 
-
-
-
-  >
   <!-- link to boostrap library-->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"  crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
+  <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
     <script src="./assets/js/main.js"></script>
 </body>
 
