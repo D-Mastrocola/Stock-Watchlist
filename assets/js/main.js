@@ -21,6 +21,7 @@ var getChartData = function(stockTicker) {
     
 }
 
+
 // function to make the chart
 var drawChart = function(data) {
     var data = google.visualization.arrayToDataTable([
