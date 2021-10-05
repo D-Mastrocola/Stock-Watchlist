@@ -127,6 +127,10 @@ let searchForm = $('#search-form').on('submit', (event) => {
   $("#search-input").val('');
 })
 
+// new code for the chart data
+var searchInputEl = document.getElementById("search-input");
+var searchButtonEl = document.getElementById("search-button");
+var chartName = document.getElementById("candlestick-ticker");
 
 var getChartData = function(stockTicker) {
   fetch("https://finnhub.io/api/v1/stock/candle?symbol=" + stockTicker + "&resolution=D&from=1631022248&to=1631627048&token=sandbox_bvhn01v48v6olk04psp0")
