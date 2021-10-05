@@ -15,7 +15,7 @@
       crossorigin="anonymous"
     />
   <link rel="stylesheet" href="./assets/css/style.css">
-
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 </head>
 
@@ -47,7 +47,7 @@
         </ul>
         <form id='search-form' class="d-flex">
           <input id='search-input' class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button class="btn btn-outline-success" type="submit" id="search-button">Search</button>
         </form>
       </div>
     </div>
@@ -58,16 +58,19 @@
     <h2>Watchlist</h2>
   </section>
 
-  <!--main content HERO section *Need hrefs for stock picks-->
+  <!-- Graph -->
+  <div id="chart_div" style="width: 500px; height: 250px;"></div>
 
-  <div id="hot-picks" class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Hot Picks
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <a class="dropdown-item" href="#">Hot Pick1</a>
-      <a class="dropdown-item" href="#">Hot Pick2</a>
-      <a class="dropdown-item" href="#">Hot Pick3</a>
+  <!--main content HERO section-->
+  <div id="HotPicks"> Hot Picks
+    <p>These Stocks are headed for the crescendo!</p>
+    <ul>
+      <li> HP 1</li>
+      <li> HP 2</li>
+      <li> HP 3</li>
+    </ul>
+    <div>
+      <h4> <img src="assets/images/image place holder.jpg" />
     </div>
   </div>
 
@@ -119,10 +122,10 @@
     ></script>
 
     <script src="./assets/js/main.js"></script>
-</body>
 
-<footer>
-  
-</footer>
+    
+ 
+  </body>
+ 
 
 </html>
