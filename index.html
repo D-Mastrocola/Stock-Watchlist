@@ -14,7 +14,7 @@
       crossorigin="anonymous"
     />
   <link rel="stylesheet" href="./assets/css/style.css">
-  <!-- Adding note for testing -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 </head>
 
@@ -46,38 +46,30 @@
         </ul>
         <form id='search-form' class="d-flex">
           <input id='search-input' class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button class="btn btn-outline-success" type="submit" id="search-button">Search</button>
         </form>
       </div>
     </div>
   </nav>
 
   <!-- This is the ticker section-->
-<<<<<<< HEAD
-  <section class="Ticker-Section">
-    
-    <div class="hwrap"><div class="hmove">
-      <div class="hitem">This will be a Ticker.</div>
-      <div class="hitem">And this will be a Tick...</div>
-      <div class="hitem">And this will be a Tick..</div>
-      <div class="hitem">And this will be a Tick.</div>
-    </div></div>
-=======
   <section id='watch-list' class="Ticker-Section bg-light p-4">
     <h2>Watchlist</h2>
->>>>>>> fe9fddd8beb19155de24d3c344604538af46f070
   </section>
 
-  <!--main content HERO section *Need hrefs for stock picks-->
+  <!-- Graph -->
+  <div id="chart_div" style="width: 500px; height: 250px;"></div>
 
-  <div id="hot-picks" class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Hot Picks
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <a class="dropdown-item" href="#">Hot Pick1</a>
-      <a class="dropdown-item" href="#">Hot Pick2</a>
-      <a class="dropdown-item" href="#">Hot Pick3</a>
+  <!--main content HERO section-->
+  <div id="HotPicks"> Hot Picks
+    <p>These Stocks are headed for the crescendo!</p>
+    <ul>
+      <li> HP 1</li>
+      <li> HP 2</li>
+      <li> HP 3</li>
+    </ul>
+    <div>
+      <h4> <img src="assets/images/image place holder.jpg" />
     </div>
   </div>
 
@@ -118,15 +110,6 @@
 </div>
 </div>
 
-<<<<<<< HEAD
-
-
-
-  >
-  <!-- link to boostrap library-->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"  crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
-=======
   <!-- link to boostrap library-->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"  crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
@@ -137,12 +120,11 @@
       referrerpolicy="no-referrer"
     ></script>
 
->>>>>>> fe9fddd8beb19155de24d3c344604538af46f070
     <script src="./assets/js/main.js"></script>
-</body>
 
-<footer>
-  
-</footer>
+    
+ 
+  </body>
+ 
 
 </html>
