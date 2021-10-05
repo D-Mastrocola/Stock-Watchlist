@@ -1,6 +1,7 @@
 const API_KEY = 'sandbox_bvhn01v48v6olk04psp0';
 var searchInputEl = document.getElementById("search-input");
 var searchButtonEl = document.getElementById("search-button");
+var chartName = document.getElementById("candlestick-ticker");
 
 // needed for google charts
 google.charts.load('current', {'packages':['corechart']});
@@ -30,6 +31,8 @@ var drawChart = function(data) {
     var chart = new google.visualization.CandlestickChart(document.getElementById('chart_div'));
 
     chart.draw(data, options);
+
+    chartName.textContent = searchInputEl.value.trim().toUpperCase();
 }
 
 searchButtonEl.onclick = function(event) {
