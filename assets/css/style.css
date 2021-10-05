@@ -5,55 +5,18 @@ body {
 }
 
 /*Centering the title text and adding animat.css (which needs a duration )*/
-.Head-Title {
+.Head-Title, .Ticker-Section {
     text-align: center;
     animation: fadeInDown;
     animation-duration: 3s;
-    padding: 0%;
 }
 
-.Ticker-Section {
-    padding: 1%;
-    margin: auto;
-
-}
-/*  FIXED Ticker WRAPPER */
-.hwrap {
-    overflow: hidden; /* HIDE SCROLL BAR */
-    background: aliceblue;
-  }
-   
-  /* MOVING TICKER WRAPPER */
-  .hmove {
-      display: flex; 
-
-}
-  
-  /* ITEMS - INTO A LONG HORIZONTAL ROW */
-  .hitem {
-    flex-shrink: 0;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    text-align: center;
-    border-color: black;
-  }
-   
-  /* ANIMATION - RIGHT TO LEFT */
-  /* 4 ITEMS -400%, CHANGE THIS IF YOU ADD/REMOVE ITEMS */
-  @keyframes tickerh {
-    0% { transform: translate3d(100%, 0, 0); }
-    100% { transform: translate3d(-200%, 0, 0); }
-  }
-  .hmove { animation: tickerh linear 15s infinite; }
-  .hmove:hover { animation-play-state: paused; }
 
 
 img {
     border: 15px black;
-    width: 200px
+width: 300px
 }
-
 nav {
     overflow: hidden;
     background-color: black;
