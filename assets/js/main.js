@@ -31,7 +31,7 @@ let makeCard = (ticker) => {
       if (priceChange >= 0) color = changeColors.up;
 
       let title = $("<h2>").addClass('col-4 text-end').html(
-        "<span class='col-10 m-2 " + color + "'>" + price + "</span>" + ticker
+        "<span class='col-10 m-2 " + color + "'>" + price + "</span><a href='./ticker-details.html?ticker=" + ticker +"' "  + "class='ticker text-dark'>" + ticker +'</a>'
       );
       let dayInfo = { 
         change: data.dp.toFixed(2),
