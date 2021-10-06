@@ -72,3 +72,11 @@ nav a:hover {
     background-color: aliceblue;
     color: black;
 }
+.ticker {
+    text-decoration: none;
+}
+.ticker:hover {
+    text-decoration: underline;
+    color: blue !important;
+    cursor: pointer;
+}
