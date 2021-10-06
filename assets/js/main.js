@@ -170,4 +170,6 @@ let searchForm = $('#search-form').on('submit', (event) => {
   watchListTickers.push(input);
   makeCard(input);
   $("#search-input").val('');
+  var stock = searchInputEl.value.trim().toUpperCase();
+  getChartData(stock);
 })
