@@ -1,7 +1,7 @@
 body { 
     background-color: aquamarine;
     font-family: "Roboto", sans-serif, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    
+    min-height: 100vh;
 }
 
 /*Centering the title text and adding animat.css (which needs a duration )*/
