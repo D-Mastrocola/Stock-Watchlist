@@ -1,0 +1,13 @@
+fetch("https://alpha-vantage.p.rapidapi.com/query?interval=5min&function=TIME_SERIES_INTRADAY&symbol=MSFT&datatype=json&output_size=compact", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "alpha-vantage.p.rapidapi.com",
+		"x-rapidapi-key": "ea0e25f3f6msh5b7c7995686fafdp19e5a3jsn6a4995cfbf7d"
+	}
+})
+.then(response => {
+	console.log(response);
+})
+.catch(err => {
+	console.error(err);
+});

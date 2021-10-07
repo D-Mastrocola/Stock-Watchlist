@@ -1,0 +1,13 @@
+fetch("https://twelve-data1.p.rapidapi.com/exchanges?format=json", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "twelve-data1.p.rapidapi.com",
+		"x-rapidapi-key": "ea0e25f3f6msh5b7c7995686fafdp19e5a3jsn6a4995cfbf7d"
+	}
+})
+.then(response => {
+	console.log(response);
+})
+.catch(err => {
+	console.error(err);
+});
