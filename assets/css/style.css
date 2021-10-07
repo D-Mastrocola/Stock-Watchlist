@@ -80,3 +80,11 @@ nav a:hover {
     color: blue !important;
     cursor: pointer;
 }
+.chart {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.chart #chart_div {
+    padding: 0 0px 10px 10px;
+}

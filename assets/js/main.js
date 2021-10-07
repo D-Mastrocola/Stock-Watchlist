@@ -155,7 +155,6 @@ var drawChart = function(data) {
 
   chart.draw(data, options);
 
-  chartName.textContent = searchInputEl.value.trim().toUpperCase();
 
 }
 
