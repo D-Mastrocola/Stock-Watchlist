@@ -6,7 +6,9 @@ google.charts.setOnLoadCallback(drawChart);
 
 let queryString = document.location.search;
 let selectedTicker = queryString.split("=")[1];
-console.log(selectedTicker);
+
+//Changes title of page
+$(document).prop('title', selectedTicker + ' - Stock Watchlist');
 
 let tickerDetailsEl = $('#ticker-details').addClass('row').html("<h2 class'col-12'>" + selectedTicker + '</h2>');
 
@@ -58,6 +60,7 @@ let getTickerDetails = async (ticker) => {
       let yearRange = $('<div>').addClass('col-12 row p-2').html("<span class='col-6 text-start'>52 Week Range: </span><span class='col-6 text-end fw-bold'>" + data.metric['52WeekLow'].toFixed(2) + " - " + data.metric['52WeekHigh'].toFixed(2) + "</span>");
       tradeInfoEl.append(yearRange)
 
+      //Market Cap
       let marketCapText = data.metric.marketCapitalization.toFixed(0);
       //Market cap is 10 ^ -6
       if(data.metric.marketCapitalization / 1_000_000 > 1) {
@@ -73,7 +76,20 @@ let getTickerDetails = async (ticker) => {
         marketCapText = (data.metric.marketCapitalization/1_000_000_000_000).toFixed(2) + "T";
       }
       let marketCap = $('<div>').addClass('col-12 row p-2').html("<span class='col-6 text-start'>Market Cap: </span><span class='col-6 text-end fw-bold'>" + marketCapText + "</span>");
-      companyInfoEl.append(marketCap)
+
+      //Earnings Per Share
+      let epsEl = $('<div>').addClass('col-12 row p-2').html("<span class='col-6 text-start'>EPS (TTM): </span><span class='col-6 text-end fw-bold'>" + data.metric.epsBasicExclExtraItemsTTM.toFixed(2) + "</span>");
+
+      //PE ratio
+      let peRatio = data.metric.peBasicExclExtraTTM;
+      if([null, undefined].includes(peRatio)) peRatio = 0;
+      let peRatioEl = $('<div>').addClass('col-12 row p-2').html("<span class='col-6 text-start'>PE Ratio(TTM): </span><span class='col-6 text-end fw-bold'>" + peRatio.toFixed(2) + "</span>");
+
+      let dividendPerShare = data.metric.dividendsPerShareTTM;
+      if([null, undefined].includes(dividendPerShare)) dividendPerShare = 0;
+      let dividendEl = $('<div>').addClass('col-12 row p-2').html("<span class='col-6 text-start'>Dividend: </span><span class='col-6 text-end fw-bold'>" + dividendPerShare.toFixed(2) + "</span>");
+
+      companyInfoEl.append(marketCap, epsEl, peRatioEl, dividendEl)
     })
   });
   tickerDetailsEl.append(tradeInfoEl, companyInfoEl, graph);
