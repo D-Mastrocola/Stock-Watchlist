@@ -20,8 +20,7 @@ This is a frontend javascript application utilizing bootstrap and animation.css 
 ![Screenshot of App](../images/image place holder)
 
 ## Acknowledgment
-
-asgdjkhasdf
+The team Jake Thaddeus Dominic & Sykani
 
 
 
