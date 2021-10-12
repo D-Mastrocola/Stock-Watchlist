@@ -18,7 +18,7 @@ This is a frontend javascript application utilizing bootstrap and animation.css 
 ## Application 
 
 ![Screenshot of App](https://github.com/D-Mastrocola/Stock-Watchlist/blob/main/assets/images/screenshot.png)
-![Live](https://d-mastrocola.github.io/Stock-Watchlist/)
+[Live](https://d-mastrocola.github.io/Stock-Watchlist/)
 
 ## Acknowledgment
 The team Jake Thaddeus Dominic & Sykani
