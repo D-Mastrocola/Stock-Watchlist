@@ -1,296 +1,150 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dominic Mastrocola</title>
-    <link rel="icon" type="image/svg" href="./assets/images/Logo.svg" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&family=Roboto&display=swap"
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Stock Watchlist</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- link to boostrap library-->
+  <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
     />
-  </head>
-  <body>
-    <!-- Landing -->
-    <!--<section id="landing-section">
-      <canvas id="canvas"></canvas>
-      <div id="title-container">
-        <h1 id="title-text">Dominic Mastrocola</h1>
-        <p id="subtitle-text">Web Developer / Game Developer</p>
-      </div>
-    </section> -->
-    <!--Header-->
-    <header>
-      <a id='logo-container' href="/"
-        ><img src="./assets/images/Logo.svg" alt="My initials DM"
-      /></a>
-      <nav>
-        <ul>
-          <li><a class='scroll-link' href="#about">About</a></li>
-          <li><a class='scroll-link' href="#portfolio">Portfolio</a></li>
-          <li><a class='scroll-link' href="#contact">Contact</a></li>
-          <li><a href="./portfolio/Resume.pdf" target="_blank">Resume</a></li>
-        </ul>
-      </nav>
-    </header>
-    <!-- Landing Section -->
-    <section id="landing">
-      <h1>Hi, I'm Dominic Mastrocola</h1>
-      <p>Front End / Game Developer</p>
-      <div>
-        <a href="#contact" id="landing-btn-filled" class="landing-btn scroll-link"
-          >Let's Work Together!</a
-        >
-        <a href="#portfolio" class="landing-btn scroll-link">View Projects</a>
-      </div>
-    </section>
-    <!-- About Section -->
-    <section id="about">
-      <img src="./assets/images/headShot.jpg" />
-      <div>
-        <h2>About Me</h2>
-        <p>
-          I am a Web Developer based in Ohio. I can take your ideas and turn it into a responsive website that can viewed all over the world. Currently attending Case Western Reserve University pursuing my Full Stack Web Development certificate. Open to dev work.
-        </p>
-      </div>
-    </section>
-    <!--Portfolio-->
-    <section id="portfolio">
-      <h2>Portfolio</h2>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-      <!-- the class reverse column is a utility class so when the screen size changes the format is consistent-->
+</head>
 
-      <article class="portfolio-card" id='first-card'>
-        <img src="./assets/images/stockWatchList.png" alt="Stock Watchlist" />
-        <div class="text-container">
-          <h3>Stock Watchlist</h3>
-          <p>
-            I worked with a team and used Agile Development Methodologies. Usning finnhub.io and google charts we got stock data and displayed it on the page. I developed the ticker list which gets random tickers from finnhub.io then displays them on the page and saves it to local storage. I also developed the serach functionality which adds ticker to the list and local storage as well as the ticker details page.
-          </p>
-          <div>
-            <a
-              href="https://d-mastrocola.github.io/Stock-Watchlist/"
-              target="_blank"
-              class="portfolio-link"
-              >Live</a
-            >
-            <a
-              href="https://github.com/D-Mastrocola/Stock-Watchlist"
-              target="_blank"
-              class="portfolio-link"
-              >Code</a
-            >
-          </div>
-        </div>
-      </article>
+<body>
+  <h1 class="Head-Title">Watchlist Stock Picks</h1>
+  <!-- This is the navigation-->
 
-      <article class="portfolio-card">
-        <img src="./assets/images/weatherDashboard.png" alt="Weather Dashboard" />
-        <div class="text-container">
-          <h3>Weather Dashboard</h3>
-          <p>
-            I made a Weather Dashboard that uses the OpenWeather API to get the weather for the requested location as well as the 5 day forcast. It uses HTML, CSS, Bootstrap, JavaScript, jQuery, and fetch.
-          </p>
-          <div>
-            <a
-              href="https://d-mastrocola.github.io/Weather-Dashboard/"
-              target="_blank"
-              class="portfolio-link"
-              >Live</a
-            >
-            <a
-              href="https://github.com/D-Mastrocola/Weather-Dashboard"
-              target="_blank"
-              class="portfolio-link"
-              >Code</a
-            >
-          </div>
-        </div>
-      </article>
-
-      <article class="portfolio-card reverse-column">
-        
-        <div class="text-container text-right">
-          <h3>Coding Test</h3>
-          <p>
-            Using JavaScript I used a game loop to to keep track of time. I made an array of question objects and everytime the user answers a question it grabs an random question from the list and deletes it. If the time runs out the quiz ends or if all the questions have been answered the test ends. If the user's score is a highscore a form is created and the highscore list is saved to local storage.
-          </p>
-          <div>
-            <a
-              href="https://d-mastrocola.github.io/Code-Quiz-Challenge/"
-              target="_blank"
-              class="portfolio-link"
-              >Live</a
-            >
-            <a
-              href="https://github.com/D-Mastrocola/Code-Quiz-Challenge"
-              target="_blank"
-              class="portfolio-link"
-              >Code</a
-            >
-          </div>
-        </div>
-        <img src="./assets/images/codeQuiz.png" alt="coding quiz" />
-      </article>
-
-      <article class="portfolio-card">
-        <img src="./assets/images/taskinator.png" alt="To Do List" />
-        <div class="text-container">
-          <h3>Taskinator</h3>
-          <p>
-            Using JavaScript I took input from the form and used it to create new DOM elements. I learned about the event.preventDefault() function to prevent page from reloding on form submit. I learned about data attributes and using local storage to save the tasks to browser.
-          </p>
-          <div>
-            <a
-              href="https://d-mastrocola.github.io/Taskinator/"
-              target="_blank"
-              class="portfolio-link"
-              >Live</a
-            >
-            <a
-              href="https://github.com/D-Mastrocola/Taskinator"
-              target="_blank"
-              class="portfolio-link"
-              >Code</a
-            >
-          </div>
-        </div>
-      </article>
-
-      <article class="portfolio-card reverse-column">
-        <div class="text-container text-right">
-          <h3>Run Buddy</h3>
-          <p>
-            A mockup website for a fake company named Run Buddy Inc. I used HTML and CSS. I made sure that images had alt tags and I used the most accessable tags for screen readers; and I used media queries to make it responsive to any screen size.
-          </p>
-          <div>
-            <a
-              href="https://d-mastrocola.github.io/run-buddy/"
-              target="_blank"
-              class="portfolio-link"
-              >Live</a
-            >
-            <a
-              href="https://github.com/D-Mastrocola/run-buddy"
-              target="_blank"
-              class="portfolio-link"
-              >Code</a
-            >
-          </div>
-        </div>
-        <img src="./assets/images/runbuddy.png" alt="run buddy" />
-      </article>
-
-      <article class="portfolio-card">
-        <img src="./assets/images/pathfinder.png" alt="pathfinder project" />
-        <div class="text-container">
-          <h3>Pathfinder</h3>
-          <p>
-            A pathfinder visualizer based on the A* algorithm. Made using
-            JavaScript. You can change the position of the start and end nodes
-            by clicking and dragging. Place wall nodes by clicking on an empty
-            node
-          </p>
-          <div>
-            <a
-              href="https://d-mastrocola.github.io/Path-Finder-Visualizer/"
-              target="_blank"
-              class="portfolio-link"
-              >Live</a
-            >
-            <a
-              href="https://github.com/D-Mastrocola/Path-Finder-Visualizer"
-              target="_blank"
-              class="portfolio-link"
-              >Code</a
-            >
-          </div>
-        </div>
-      </article>
-
-      <article class="portfolio-card reverse-column">
-        <div class="text-container text-right">
-          <h3>JavaScript Craft</h3>
-          <p>
-            A simple minecraft clone made with THREEjs. The terrain is generated
-            using perlin noise to create smoother terrain with randomness to
-            make it feel organic.
-          </p>
-          <div>
-            <a
-              href="https://d-mastrocola.github.io/JavaScriptCraft/"
-              target="_blank"
-              class="portfolio-link"
-              >Live</a
-            >
-            <a
-              href="https://github.com/D-Mastrocola/JavaScriptCraft"
-              target="_blank"
-              class="portfolio-link"
-              >Code</a
-            >
-          </div>
-        </div>
-        <img  src="./assets/images/minecraft.png" alt="javascript craft" />
-        
-      </article>
-
-      <article class="portfolio-card" id='last-card'>
-        <img src="./assets/images/platformer.png" alt="platformer"/>
-        <div class="text-container">
-          <h3>Platformer</h3>
-          <p>
-            A platformer game made using vanilla javascript. Features 2D box collision detection, Game physics, Multiple levels that are stored as text, powerups , and gamestate
-          </p>
-          <div>
-            <a
-              href="https://d-mastrocola.github.io/Platformer/"
-              target="_blank"
-              class="portfolio-link"
-              >Live</a
-            >
-            <a
-              href="https://github.com/D-Mastrocola/Platformer"
-              target="_blank"
-              class="portfolio-link"
-              >Code</a
-            >
-          </div>
-        </div>
-      </article>
-
-      
-    </section>
-    <!-- Contact Section -->
-    <section id='contact'>
-      <h2>Let's Get In Touch</h2>
-      <p>Feel free to send me an email, text, call, and/or connect with me on LinkedIn</p>
-      <ul>
-        <li>(330)-236-6775</li>
-        <li>mastrodomcola@gmail.com</li>
-      </ul>
-      <div>
-        <a class="contact-link" target="_blank" href='mailto:mastrodomcola@gmail.com'>Send Me An Email</a>
-        <a class="contact-link" target="_blank" href='https://www.linkedin.com/in/dominic-mastrocola-4100a4204?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BMdDTthOrTT6UdxAfibpA1w%3D%3D'>LinkedIn</a>
-      </div>
-      </div>
-      
-    </section>
-
-    <footer>
-      <h3>Dominic Mastrocola 2021</h3>
-      <div>
-        <ul>
-          <li><a href="https://github.com/D-Mastrocola">GitHub</a></li>
-          <li>
-            <a href="https://www.linkedin.com/in/dominic-mastrocola-4100a4204?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BMdDTthOrTT6UdxAfibpA1w%3D%3D">LinkedIn</a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#hot-picks">Hot Picks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#maybe-not">Maybe Not Picks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#worth-a-shot">Worth A Shot Picks</a>
+          </li>
+
         </ul>
+        <form id='search-form' class="d-flex">
+          <input id='search-input' class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit" id="search-button">Search</button>
+        </form>
       </div>
-    </footer>
+    </div>
+  </nav>
+
+  <!-- This is the ticker section-->
+  <section id='watch-list' class="Ticker-Section container-fluid bg-light p-4">
+    <h2>Watchlist</h2>
+  </section>
+
+  <!-- div for the chart -->
+  <section class="chart">
+    <h4>Weekly Candlestick Chart<span id="candlestick-ticker"></span></h4>
+    <div id="chart_div" style="width: 500px; height: 250px;"></div>
+  </section>
+ 
+
+  <!--main content HERO section *Need hrefs for stock picks-->
+
+  <div id="hot-picks" class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Hot Picks
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <a class="dropdown-item" href="#">Hot Pick1</a>
+      <a class="dropdown-item" href="#">Hot Pick2</a>
+      <a class="dropdown-item" href="#">Hot Pick3</a>
+  <!-- Graph -->
+  <div id="chart_div" style="width: 500px; height: 250px;"></div>
+
+  <!--main content HERO section-->
+  <div id="HotPicks"> Hot Picks
+    <p>These Stocks are headed for the crescendo!</p>
+    <ul>
+      <li> HP 1</li>
+      <li> HP 2</li>
+      <li> HP 3</li>
+    </ul>
+    <div>
+      <h4> <img src="assets/images/image place holder.jpg" />
+    </div>
+  </div>
+
+  <div>
+    <h4> <img src="assets/images/image place holder.jpg" />
+  </div>
+</div>
+
+<div id="maybe-not" class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Maybe Not Picks
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+    <a class="dropdown-item" href="#">Maybe Not Pick1</a>
+    <a class="dropdown-item" href="#">Maybe Not Pick2</a>
+    <a class="dropdown-item" href="#">Maybe Not Pick3</a>
+  </div>
+</div>
+
+<div>
+  <h4> <img src="assets/images/image place holder.jpg" />
+</div>
+</div>
+
+<div id= "worth-a-shot" class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Worth A Shot Picks
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+    <a class="dropdown-item" href="#">Worth A Shot1</a>
+    <a class="dropdown-item" href="#">Worth A Shot2</a>
+    <a class="dropdown-item" href="#">Worth A Shot3</a>
+  </div>
+</div>
+
+<div>
+  <h4> <img src="assets/images/image place holder.jpg" />
+</div>
+</div>
+
+  <!-- link to boostrap library-->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
+  <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
 
     <script src="./assets/js/main.js"></script>
+
+    
+ 
   </body>
+ 
+
 </html>
