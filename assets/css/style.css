@@ -1,7 +1,7 @@
 body { 
     background-color: aquamarine;
     font-family: "Roboto", sans-serif, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    
+    min-height: 100vh;
 }
 
 /*Centering the title text and adding animat.css (which needs a duration )*/
@@ -79,4 +79,12 @@ nav a:hover {
     text-decoration: underline;
     color: blue !important;
     cursor: pointer;
+}
+.chart {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.chart #chart_div {
+    padding: 0 0px 10px 10px;
 }
